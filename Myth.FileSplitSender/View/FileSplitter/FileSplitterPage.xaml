@@ -8,17 +8,20 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="FileSplitterPage">
+    <Page.DataContext>
+        <local:FileSplitterViewModel/>
+    </Page.DataContext>
     <DockPanel Background="Lavender">
         <StackPanel DockPanel.Dock="Top">
             <DockPanel>
                 <Label Content="源文件路径："/>
                 <Button x:Name="buttonBowseSourceFilePath" DockPanel.Dock="Right" Content="浏览"/>
-                <TextBox Name="textBoxSourceFilePath"/>
+                <TextBox Name="textBoxSourceFilePath" Text="{Binding SrcFilePath}"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="源文件路径："/>
                 <Button x:Name="buttonBowseTargetFolderPath" DockPanel.Dock="Right" Content="浏览"/>
-                <TextBox x:Name="textBoxTargetFolderPath"/>
+                <TextBox x:Name="textBoxTargetFolderPath" Text="{Binding TargetFolderPath}"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="文件大小："/>

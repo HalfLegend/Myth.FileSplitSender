@@ -1,14 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Practices.Prism.Mvvm;
+﻿using Microsoft.Practices.Prism.Mvvm;
 
 namespace Myth.FileSplitSender.View.FileSplitter
 {
-    class FileSplitterViewModel : BindableBase
+    internal class FileSplitterViewModel : BindableBase
     {
+        private string _srcFilePath;
 
+        public string SrcFilePath
+        {
+            get { return _srcFilePath; }
+            set
+            {
+                if (_srcFilePath == value)
+                {
+                    return;
+                }
+                _srcFilePath = value;
+                OnPropertyChanged(SrcFilePath);
+            }
+        }
+
+        private string _targetFolderPath;
+
+        public string TargetFolderPath
+        {
+            get { return _targetFolderPath; }
+            set
+            {
+                if (_targetFolderPath == value)
+                {
+                    return;
+                }
+                _targetFolderPath = value;
+                OnPropertyChanged(TargetFolderPath);
+            }
+        }
     }
 }
