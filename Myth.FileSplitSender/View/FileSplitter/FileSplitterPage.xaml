@@ -8,9 +8,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="FileSplitterPage">
-    <Page.DataContext>
-        <local:FileSplitterViewModel/>
-    </Page.DataContext>
     <DockPanel Background="Lavender">
         <StackPanel DockPanel.Dock="Top">
             <DockPanel>

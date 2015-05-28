@@ -16,6 +16,7 @@ namespace Myth.FileSplitSender.View.FileSplitter
                     return;
                 }
                 _srcFilePath = value;
+                // ReSharper disable once ExplicitCallerInfoArgument
                 OnPropertyChanged(SrcFilePath);
             }
         }
@@ -32,6 +33,7 @@ namespace Myth.FileSplitSender.View.FileSplitter
                     return;
                 }
                 _targetFolderPath = value;
+                // ReSharper disable once ExplicitCallerInfoArgument
                 OnPropertyChanged(TargetFolderPath);
             }
         }

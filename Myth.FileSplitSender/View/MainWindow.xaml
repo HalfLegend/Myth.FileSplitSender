@@ -1,0 +1,29 @@
+﻿<Window x:Class="Myth.FileSplitSender.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <TabControl>
+        <TabItem Header="切割器">
+        </TabItem>
+        <TabItem Header="拼合器">
+            <DockPanel>
+                <StackPanel>
+                    <DockPanel>
+                        <Label Content="分隔文件夹路径：" />
+                        <Button Content="浏览..." DockPanel.Dock="Right" />
+                        <TextBox />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="目标文件路径：" />
+                        <Button DockPanel.Dock="Right" Content="浏览..." />
+                        <TextBox />
+                    </DockPanel>
+                </StackPanel>
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="文件发送" />
+    </TabControl>
+</Window>
