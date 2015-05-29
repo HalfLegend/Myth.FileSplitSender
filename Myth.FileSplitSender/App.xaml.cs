@@ -1,17 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using Microsoft.Practices.Prism.Mvvm;
+using Myth.FileSplitSender.View.FileSplitter;
 
 namespace Myth.FileSplitSender
 {
     /// <summary>
     /// App.xaml 的交互逻辑
     /// </summary>
-    public partial class App : Application
+    public partial class App
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            InitializeViewModel();
+        }
+
+        private static void InitializeViewModel()
+        {
+            ViewModelLocationProvider.Register(typeof(FileSplitterPage).FullName, () => new FileSplitterViewModel());
+        }
     }
 }

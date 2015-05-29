@@ -71,6 +71,7 @@
     <Reference Include="System.Runtime">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.5\System.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -101,10 +102,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\FileSplitter\DataUnitEnum.cs" />
     <Compile Include="View\FileSplitter\FileSplitterPage.xaml.cs">
       <DependentUpon>FileSplitterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\FileSplitter\FileSplitterViewModel.cs" />
+    <Compile Include="View\FileSplitter\ProcessValueConverter.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -138,7 +141,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Myth.FileSplitSender.Core\Myth.FileSplitSender.Core.csproj">
+      <Project>{2ebb59e0-0a32-4718-954e-4eae7e532f8d}</Project>
+      <Name>Myth.FileSplitSender.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

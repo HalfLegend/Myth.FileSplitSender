@@ -7,6 +7,7 @@
         Title="MainWindow" Height="350" Width="525">
     <TabControl>
         <TabItem Header="切割器">
+            <Frame Source="FileSplitter/FileSplitterPage.xaml"/>
         </TabItem>
         <TabItem Header="拼合器">
             <DockPanel>

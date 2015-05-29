@@ -4,31 +4,45 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Myth.FileSplitSender.View.FileSplitter"
+      xmlns:vm="clr-namespace:Microsoft.Practices.Prism.Mvvm;assembly=Microsoft.Practices.Prism.Mvvm.Desktop"
       xmlns:system="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="FileSplitterPage">
+      Title="FileSplitterPage"
+      vm:ViewModelLocator.AutoWireViewModel="True" d:DataContext="{d:DesignInstance local:FileSplitterViewModel}">
+    <Page.Resources>
+        <ObjectDataProvider x:Key="DataUnitEnum" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:DataUnitEnum"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <local:ProcessValueConverter x:Key="ProcessValueConverter"/>
+    </Page.Resources>
     <DockPanel Background="Lavender">
         <StackPanel DockPanel.Dock="Top">
             <DockPanel>
                 <Label Content="源文件路径："/>
-                <Button x:Name="buttonBowseSourceFilePath" DockPanel.Dock="Right" Content="浏览"/>
+                <Button x:Name="buttonBowseSourceFilePath" DockPanel.Dock="Right" Content="浏览" Command="{Binding BrowseSrcFileCommand}"/>
                 <TextBox Name="textBoxSourceFilePath" Text="{Binding SrcFilePath}"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="源文件路径："/>
-                <Button x:Name="buttonBowseTargetFolderPath" DockPanel.Dock="Right" Content="浏览"/>
+                <Button x:Name="buttonBrowseTargetFolderPath" DockPanel.Dock="Right" Content="浏览" Command="{Binding BrowseTargetDirectoryCommand}"/>
                 <TextBox x:Name="textBoxTargetFolderPath" Text="{Binding TargetFolderPath}"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="文件大小："/>
-                <ComboBox DockPanel.Dock="Right" SelectedIndex="0">
-                    <system:String>MB</system:String>
-                </ComboBox>
-                <TextBox x:Name="textBoxSeperateFileSize" Text="9"/>
+                <ComboBox DockPanel.Dock="Right" SelectedIndex="2" ItemsSource="{Binding Source={StaticResource DataUnitEnum}}" SelectedItem="{Binding DataUnit}"/>
+                <TextBox x:Name="textBoxSeperateFileSize" Text="{Binding FileSplitSize}"/>
             </DockPanel>
-            <Button x:Name="buttonStartSeperate" Content="开始"/>
+            <Button x:Name="buttonStartSeperate" Content="开始" Command="{Binding DoSplitCommand}"/>
+            
         </StackPanel>
-        <ListBox x:Name="listBoxOutput"/>
+        <Grid DockPanel.Dock="Top">
+            <ProgressBar Height="20" Value="{Binding ProcessRate}" Maximum="1"/>
+            <Label HorizontalContentAlignment="Center" Content="{Binding ProcessRate, Converter={StaticResource ProcessValueConverter}}"/>
+        </Grid>
+        
+        <ListBox x:Name="listBoxOutput" ItemsSource="{Binding SplitFileOutputList}" SelectedIndex="{Binding SelectedOutputIndex, Mode=OneWay}" SelectionChanged="Selector_OnSelectionChanged"/>
     </DockPanel>
 </Page>
