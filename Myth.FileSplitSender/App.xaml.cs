@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Microsoft.Practices.Prism.Mvvm;
+using Myth.FileSplitSender.View.FileSenderPage;
 using Myth.FileSplitSender.View.FileSplitter;
 
 namespace Myth.FileSplitSender
@@ -18,6 +19,11 @@ namespace Myth.FileSplitSender
         private static void InitializeViewModel()
         {
             ViewModelLocationProvider.Register(typeof(FileSplitterPage).FullName, () => new FileSplitterViewModel());
+            ViewModelLocationProvider.Register(typeof(FileSenderPage).FullName, () =>
+            {
+                return new FileSenderViewModel();
+
+            });
         }
     }
 }

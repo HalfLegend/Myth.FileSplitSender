@@ -90,6 +90,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\FileSenderPage\FileSenderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\FileSplitter\FileSplitterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -102,6 +106,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\FileSenderPage\FileSenderPage.xaml.cs">
+      <DependentUpon>FileSenderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FileSenderPage\FileSenderViewModel.cs" />
     <Compile Include="View\FileSplitter\DataUnitEnum.cs" />
     <Compile Include="View\FileSplitter\FileSplitterPage.xaml.cs">
       <DependentUpon>FileSplitterPage.xaml</DependentUpon>
@@ -146,6 +154,9 @@
       <Project>{2ebb59e0-0a32-4718-954e-4eae7e532f8d}</Project>
       <Name>Myth.FileSplitSender.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\FileSplicerPage\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

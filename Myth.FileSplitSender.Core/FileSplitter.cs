@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
-
+using System.Security.Cryptography;
 namespace Myth.FileSplitSender.Core
 {
     public static class FileSplitter
@@ -24,6 +24,7 @@ namespace Myth.FileSplitSender.Core
                 int sizeRead;
                 long maxSize = fileStream.Length;
                 long totalRead = 0;
+                //文件格式
                 do
                 {
                     sizeRead = fileStream.Read(buffer, 0, (int) seperateFileSizeByByte);
@@ -41,6 +42,8 @@ namespace Myth.FileSplitSender.Core
                     }
                     progressUpdateAction(targetFilePath + "已写入", (double)totalRead / maxSize);
                     fileIndex++;
+                    MD5 md5 = new MD5Cng();
+                    
                 } while (sizeRead >= seperateFileSizeByByte);
                 //progressUpdateAction("已完成", 1.0);
             });

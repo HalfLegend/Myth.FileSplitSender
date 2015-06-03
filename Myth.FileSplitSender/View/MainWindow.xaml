@@ -25,6 +25,8 @@
                 </StackPanel>
             </DockPanel>
         </TabItem>
-        <TabItem Header="文件发送" />
+        <TabItem Header="文件发送">
+            <Frame Source="FileSenderPage/FileSenderPage.xaml"/>
+        </TabItem>
     </TabControl>
 </Window>

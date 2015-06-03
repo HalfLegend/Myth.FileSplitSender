@@ -1,0 +1,39 @@
+﻿<Page x:Class="Myth.FileSplitSender.View.FileSenderPage.FileSenderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Myth.FileSplitSender.View.FileSenderPage"
+      xmlns:mvvm="clr-namespace:Microsoft.Practices.Prism.Mvvm;assembly=Microsoft.Practices.Prism.Mvvm.Desktop"
+      xmlns:fileSplitter="clr-namespace:Myth.FileSplitSender.View.FileSplitter"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="FileSenderPage"
+      mvvm:ViewModelLocator.AutoWireViewModel="True" d:DataContext="{d:DesignInstance local:FileSenderViewModel}">
+
+    <DockPanel Background="Lavender">
+        <StackPanel DockPanel.Dock="Top">
+            <DockPanel>
+                <Label Content="源文件夹:"/>
+                <Button Content="浏览.." DockPanel.Dock="Right" Command="{Binding BrowseSrcFolderCommand}"/>
+                <TextBox Text="{Binding SrcFolderPath}"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="目标地址:"/>
+                <TextBox Text="{Binding TargetEmailAddress}"/>
+            </DockPanel>
+            <DockPanel>
+                <RadioButton Content="调用Outlook" IsChecked="True"/>
+                <RadioButton Content="调用Localhost"/>
+                <RadioButton Content="调用SMTP"/>
+            </DockPanel>
+            <Button Content="发送..." Command="{Binding DoSendCommand}"/>
+            <Grid>
+                <ProgressBar Height="20"/>
+                <Label/>
+            </Grid>
+
+        </StackPanel>
+        <ListBox/>
+    </DockPanel>
+</Page>

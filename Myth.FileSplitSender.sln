@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myth.FileSplitSender", "Myt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myth.FileSplitSender.Core", "Myth.FileSplitSender.Core\Myth.FileSplitSender.Core.csproj", "{2EBB59E0-0A32-4718-954E-4EAE7E532F8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myth.FileSplitSender.Outlook", "Myth.FileSplitSender.Outlook\Myth.FileSplitSender.Outlook.csproj", "{90F77DE5-C972-4781-88D2-6B65ED734843}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2EBB59E0-0A32-4718-954E-4EAE7E532F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EBB59E0-0A32-4718-954E-4EAE7E532F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EBB59E0-0A32-4718-954E-4EAE7E532F8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90F77DE5-C972-4781-88D2-6B65ED734843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90F77DE5-C972-4781-88D2-6B65ED734843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90F77DE5-C972-4781-88D2-6B65ED734843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90F77DE5-C972-4781-88D2-6B65ED734843}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
